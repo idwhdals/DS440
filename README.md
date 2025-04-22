@@ -18,22 +18,21 @@ real-time image evaluation using a FastAPI backend.
 - Supports real-time inference using pre-trained models
 
 
-## Project Files Explained
+## 📁 Repository Structure
 
-- **main.py**  
-  → The main FastAPI server that handles requests and responses
-- **gradcam.py**  
-  → Generates Grad-CAM visual explanations from the model
-- **evaluate_model.py**  
-  → Evaluates model accuracy, precision, recall, etc.
-- **data_preprocessing.py**  
-  → Prepares and cleans CT image data for prediction
-- **templates/index.html**  
-  → The HTML page users see (uploaded via FastAPI’s Jinja2)
-- **static/**  
-  → Frontend resources – index.html
-- **ct_images/**  
-  → Contains all the CT scan images used for training, validation, and testing
+| Folder/File         | Description |
+|---------------------|-------------|
+| `CT_Images/`        | Contains training, validation, and testing CT images *(stored externally via [Google Drive](https://drive.google.com/drive/folders/1jQNXy4npUp6VJsmkpkWIDlopd-junDMe?usp=sharing))*  
+| `static/`           | Frontend UI files (html)  
+| `main.py`           | FastAPI backend main entrypoint  
+| `gradcam.py`        | Generates Grad-CAM heatmaps  
+| `evaluate_model.py` | Evaluates model accuracy and metrics  
+| `data_preprocessing.py` | Image preprocessing and pipeline functions  
+| `setup_fastapi.sh`  | Bash script to launch the app  
+| `.gitignore`        | Git tracking exclusions  
+| `README.md`         | Project documentation (this file)
+
+---
 
 
 ## Quick Start
