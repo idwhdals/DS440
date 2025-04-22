@@ -1,14 +1,16 @@
 # Brain Stroke Prediction Using CT Images
 
+## DS440W Capstone Project
 
-## 📝 Overview
+
+## Overview
 
 This project provides a web-based tool to predict brain stroke from CT scan images using a deep learning model. 
 The system offers visual explanations (via Grad-CAM) to increase interpretability and is designed to support 
 real-time image evaluation using a FastAPI backend.
 
 
-## ⚙️ Features
+## ⚙Features
 
 - Upload CT images and receive AI-generated predictions (Stroke / Normal)
 - Visual explanation with Grad-CAM to highlight stroke regions
@@ -16,7 +18,7 @@ real-time image evaluation using a FastAPI backend.
 - Supports real-time inference using pre-trained models
 
 
-## 🗂 Project Files Explained
+## Project Files Explained
 
 - **main.py**  
   → The main FastAPI server that handles requests and responses
