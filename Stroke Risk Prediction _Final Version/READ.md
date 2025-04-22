@@ -35,4 +35,21 @@ real-time image evaluation using a FastAPI backend.
 - **ct_images/**  
   → Contains all the CT scan images used for training, validation, and testing
 
+## Quick Start
+
+```bash
+# 1. Set up virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Start server
+python main.py
+
+
+
+
+
 
