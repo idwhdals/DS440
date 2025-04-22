@@ -1,8 +1,10 @@
-## Download Model File
+## 📂 CT Image Dataset
 
-The trained model used for stroke prediction can be downloaded from the following Google Drive link:
+The CT scan image dataset used for training, validation, and testing is available via Google Drive:
 
--[Download Model from Google Drive](https://drive.google.com/drive/folders/1jQNXy4npUp6VJsmkpkWIDlopd-junDMe?usp=sharing)
+[Download CT_Images Folder](https://drive.google.com/drive/folders/1jQNXy4npUp6VJsmkpkWIDlopd-junDMe?usp=sharing)
 
-> Note: Please download and place the model file inside the `/model/` directory before running the application.
-
+This folder contains:
+- `Train/` – Training images (Stroke / Normal)
+- `Validation/` – Validation images (Stroke / Normal)
+- `Test/` – Testing images (Stroke / Normal)
