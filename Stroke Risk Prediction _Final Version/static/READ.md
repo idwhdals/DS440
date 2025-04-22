@@ -1,1 +1,0 @@
-## Frontend resources – index.html
