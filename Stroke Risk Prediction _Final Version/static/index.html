@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>🧠 Stroke Prediction</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f7f9;
+        padding: 2rem;
+        color: #333;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      input[type="file"] {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+      }
+
+      button {
+        background: #0077cc;
+        color: white;
+        padding: 0.7rem;
+        width: 100%;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 0.5rem;
+      }
+
+      button:hover {
+        background: #005fa3;
+      }
+
+      .results {
+        margin-top: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .heatmap-container {
+        margin-top: 2rem;
+      }
+
+      .heatmap-container img {
+        max-width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+
+      .caption {
+        font-size: 0.9rem;
+        color: #555;
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>🧠 Brain Stroke Prediction</h1>
+      <input type="file" accept="image/*" />
+      <button onclick="runPrediction()">Predict Stroke</button>
+
+      <div id="result" class="results">
+        Prediction: <i>Awaiting input...</i>
+      </div>
+
+      <div class="heatmap-container" id="heatmapSection" style="display: none">
+        <h3>Model Attention Map (SHAP)</h3>
+        <img src="/static/heatmap.png" alt="SHAP heatmap" id="heatmapImage" />
+        <div class="caption">Red areas indicate higher stroke likelihood.</div>
+      </div>
+    </div>
+
+    <script>
+      async function runPrediction() {
+        const fileInput = document.querySelector("input[type='file']");
+        const resultDiv = document.getElementById("result");
+        const heatmapSection = document.getElementById("heatmapSection");
+        const heatmapImage = document.getElementById("heatmapImage");
+        const formData = new FormData();
+
+        if (!fileInput.files.length) {
+          resultDiv.innerText = "⚠️ Please upload a CT image.";
+          heatmapSection.style.display = "none";
+          return;
+        }
+
+        formData.append("file", fileInput.files[0]);
+        resultDiv.innerText = "⏳ Predicting...";
+        heatmapSection.style.display = "none";
+
+        try {
+          const response = await fetch("/predict", {
+            method: "POST",
+            body: formData,
+          });
+
+          const data = await response.json();
+          const label =
+            data.predicted_class === "Stroke" ? "🧠 Stroke" : "✅ Normal";
+          const score = parseFloat(data.prediction_score);
+
+          resultDiv.innerHTML = `Prediction: ${label}<br>Score: ${score.toFixed(
+            3
+          )}`;
+
+          // Show heatmap
+          heatmapImage.src = `/static/heatmap.png?${new Date().getTime()}`; // prevent caching
+          heatmapSection.style.display = "block";
+        } catch (err) {
+          console.error(err);
+          resultDiv.innerText =
+            "⚠️ Error while predicting. Please check backend or try again.";
+          heatmapSection.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
