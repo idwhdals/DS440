@@ -10,7 +10,7 @@ The system offers visual explanations (via Grad-CAM) to increase interpretabilit
 real-time image evaluation using a FastAPI backend.
 
 
-## ⚙Features
+## Features
 
 - Upload CT images and receive AI-generated predictions (Stroke / Normal)
 - Visual explanation with Grad-CAM to highlight stroke regions
@@ -18,21 +18,21 @@ real-time image evaluation using a FastAPI backend.
 - Supports real-time inference using pre-trained models
 
 
-## 📁 Repository Structure
+## Repository Structure
 
-| Folder/File         | Description |
-|---------------------|-------------|
-| `CT_Images/`        | Contains training, validation, and testing CT images *(stored externally via [Google Drive](https://drive.google.com/drive/folders/1jQNXy4npUp6VJsmkpkWIDlopd-junDMe?usp=sharing))*  
-| `static/`           | Frontend UI files (html)  
-| `main.py`           | FastAPI backend main entrypoint  
-| `gradcam.py`        | Generates Grad-CAM heatmaps  
-| `evaluate_model.py` | Evaluates model accuracy and metrics  
+| Folder/File             | Description |
+|-------------------------|-------------|
+| `CT_Images/`            | Contains training, validation, and testing CT images *(stored externally via [Google Drive](https://drive.google.com/drive/folders/1jQNXy4npUp6VJsmkpkWIDlopd-junDMe?usp=sharing))*  
+| `static/`               | Frontend UI files (html)  
+| `main.py`               | FastAPI backend main entrypoint  
+| `gradcam.py`            | Generates Grad-CAM heatmaps  
+| `evaluate_model.py`     | Evaluates model accuracy and metrics  
 | `data_preprocessing.py` | Image preprocessing and pipeline functions  
-| `setup_fastapi.sh`  | Bash script to launch the app  
-| `.gitignore`        | Git tracking exclusions  
-| `README.md`         | Project documentation (this file)
+| `setup_fastapi.sh`      | Bash script to launch the app  
+| `requirements.txt`      | Lists all required Python dependencies for the project  
+| `.gitignore`            | Git tracking exclusions  
+| `README.md`             | Project documentation (this file)
 
----
 
 
 ## Quick Start
