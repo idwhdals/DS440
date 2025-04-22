@@ -33,6 +33,6 @@ real-time image evaluation using a FastAPI backend.
 - **ct_images/**  
   → Contains all the CT scan images used for training, validation, and testing
 
-pip install -r requirements.txt
+## pip install -r requirements.txt
 
-python main.py
+## python main.py
