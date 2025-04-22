@@ -1,0 +1,18 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore virtual environments
+venv/
+
+# Ignore model files (if not using Git LFS)
+Models/
+*.h5
+*.pt
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore system files
+.DS_Store
